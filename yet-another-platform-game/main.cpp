@@ -1,15 +1,22 @@
-//
-//  main.cpp
-//  yet-another-platform-game
-//
-//  Created by Andreas Petersson on 2016-08-07.
-//  Copyright © 2016 Andreas Petersson. All rights reserved.
-//
+#include "game.h"
 
-#include <iostream>
+//Screen dimension constants
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    //return 0;
+int main(int argc, char* args[]) {
+    Game* g_game = new Game("My awesome game", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+    
+    if (g_game->init()) {
+        while (g_game->running()) {
+            g_game->handleEvents();
+            g_game->update();
+            g_game->render();
+        }
+    } else {
+        std::cout << "Failed to initialize" << std::endl;
+    }
+    g_game->clean();
+    
+    return 0;
 }

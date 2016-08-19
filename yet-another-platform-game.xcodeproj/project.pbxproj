@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC87B3311D57492C00F67749 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC87B3301D57492C00F67749 /* main.cpp */; };
+		BCC1E81C1D574C900087D2A0 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC1E81B1D574C900087D2A0 /* SDL2.framework */; };
+		BCC1E8221D574F0D0087D2A0 /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCC1E81D1D574F0D0087D2A0 /* dot.cpp */; };
+		BCC1E8231D574F0D0087D2A0 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCC1E81F1D574F0D0087D2A0 /* game.cpp */; };
+		BCC1E8241D574F0D0087D2A0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCC1E8211D574F0D0087D2A0 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,12 @@
 
 /* Begin PBXFileReference section */
 		BC87B32D1D57492C00F67749 /* yet-another-platform-game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "yet-another-platform-game"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC87B3301D57492C00F67749 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BCC1E81B1D574C900087D2A0 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		BCC1E81D1D574F0D0087D2A0 /* dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };
+		BCC1E81E1D574F0D0087D2A0 /* dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dot.h; sourceTree = "<group>"; };
+		BCC1E81F1D574F0D0087D2A0 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		BCC1E8201D574F0D0087D2A0 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		BCC1E8211D574F0D0087D2A0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC1E81C1D574C900087D2A0 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +50,7 @@
 		BC87B3241D57492C00F67749 = {
 			isa = PBXGroup;
 			children = (
+				BCC1E81B1D574C900087D2A0 /* SDL2.framework */,
 				BC87B32F1D57492C00F67749 /* yet-another-platform-game */,
 				BC87B32E1D57492C00F67749 /* Products */,
 			);
@@ -57,7 +67,11 @@
 		BC87B32F1D57492C00F67749 /* yet-another-platform-game */ = {
 			isa = PBXGroup;
 			children = (
-				BC87B3301D57492C00F67749 /* main.cpp */,
+				BCC1E81D1D574F0D0087D2A0 /* dot.cpp */,
+				BCC1E81E1D574F0D0087D2A0 /* dot.h */,
+				BCC1E81F1D574F0D0087D2A0 /* game.cpp */,
+				BCC1E8201D574F0D0087D2A0 /* game.h */,
+				BCC1E8211D574F0D0087D2A0 /* main.cpp */,
 			);
 			path = "yet-another-platform-game";
 			sourceTree = "<group>";
@@ -118,7 +132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC87B3311D57492C00F67749 /* main.cpp in Sources */,
+				BCC1E8221D574F0D0087D2A0 /* dot.cpp in Sources */,
+				BCC1E8231D574F0D0087D2A0 /* game.cpp in Sources */,
+				BCC1E8241D574F0D0087D2A0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +225,10 @@
 		BC87B3351D57492C00F67749 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +236,10 @@
 		BC87B3361D57492C00F67749 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -239,6 +263,7 @@
 				BC87B3361D57492C00F67749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
