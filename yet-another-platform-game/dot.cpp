@@ -35,7 +35,7 @@ void Dot::move(int width, int height) {
     if (hit == false) {
         mPosY += DOT_VEL;
     } else {
-        mPosY -= DOT_VEL;
+        //mPosY -= DOT_VEL;
     }
     
     // Check if the dot moved to far up or down
@@ -47,7 +47,7 @@ void Dot::move(int width, int height) {
             mPosY -= DOT_VEL;
             hit = true;
         } else {
-            mPosY += DOT_VEL;
+            //mPosY += DOT_VEL;
             hit = false;
         }
     }
