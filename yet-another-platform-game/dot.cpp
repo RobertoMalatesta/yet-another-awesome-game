@@ -31,11 +31,25 @@ void Dot::move(int width, int height) {
     }
     
     // Up or down
-    mPosY += mVelY;
+    //mPosY += mVelY;
+    if (hit == false) {
+        mPosY += DOT_VEL;
+    } else {
+        mPosY -= DOT_VEL;
+    }
     
     // Check if the dot moved to far up or down
     if ((mPosY < 0) || (mPosY + DOT_HEIGHT > height)) {
-        mPosY -= mVelY; // Move back
+        //mPosY -= mVelY; // Move back
+        
+        //Move back
+        if (hit == false) {
+            mPosY -= DOT_VEL;
+            hit = true;
+        } else {
+            mPosY += DOT_VEL;
+            hit = false;
+        }
     }
     
 }
