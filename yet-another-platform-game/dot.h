@@ -8,7 +8,7 @@
 class Dot {
 public:
     Dot():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { }
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false), jump(false) { }
     
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the dot's velocity
@@ -24,6 +24,7 @@ private:
     int mVelX, mVelY;                       // The velocity of the dot
     
     bool hit;
+    bool jump;
 };
 
 #endif

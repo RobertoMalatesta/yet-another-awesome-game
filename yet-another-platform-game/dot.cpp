@@ -4,7 +4,10 @@ void Dot::handleEvent(SDL_Event& event) {
     // Key pressed down
     if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
         switch(event.key.keysym.sym) {
-            case SDLK_UP:    mVelY -= DOT_VEL; break;
+            case SDLK_UP:
+                mVelY -= DOT_VEL;
+                jump = true;
+            break;
             //case SDLK_DOWN:  mVelY += DOT_VEL; break;
             case SDLK_LEFT:  mVelX -= DOT_VEL; break;
             case SDLK_RIGHT: mVelX += DOT_VEL; break;
@@ -13,7 +16,10 @@ void Dot::handleEvent(SDL_Event& event) {
     // Key is released
     else if (event.type == SDL_KEYUP && event.key.repeat == 0) {
         switch (event.key.keysym.sym) {
-            case SDLK_UP:    mVelY += DOT_VEL; break;
+            case SDLK_UP:
+                mVelY += DOT_VEL;
+                jump = false;
+            break;
             //case SDLK_DOWN:  mVelY -= DOT_VEL; break;
             case SDLK_LEFT:  mVelX += DOT_VEL; break;
             case SDLK_RIGHT: mVelX -= DOT_VEL; break;
@@ -30,25 +36,45 @@ void Dot::move(int width, int height) {
         mPosX -= mVelX; // Move back
     }
     
-    // Up or down
-    //mPosY += mVelY;
-    if (hit == false) {
-        mPosY += DOT_VEL;
+    if (jump == false) {
+        // Up or down
+        //mPosY += mVelY;
+        if (hit == false) {
+            mPosY += DOT_VEL;
+        } else {
+            //mPosY -= DOT_VEL;
+        }
     } else {
-        //mPosY -= DOT_VEL;
+        // Up or down
+        //mPosY += mVelY;
+        if (hit == false) {
+            mPosY -= DOT_VEL;
+        } else {
+            //mPosY -= DOT_VEL;
+        }
     }
     
     // Check if the dot moved to far up or down
     if ((mPosY < 0) || (mPosY + DOT_HEIGHT > height)) {
         //mPosY -= mVelY; // Move back
         
-        //Move back
-        if (hit == false) {
-            mPosY -= DOT_VEL;
-            hit = true;
+        if (jump == false) {
+            //Move back
+            if (hit == false) {
+                mPosY -= DOT_VEL;
+                hit = true;
+            } else {
+                //mPosY += DOT_VEL;
+                hit = false;
+            }
         } else {
-            //mPosY += DOT_VEL;
-            hit = false;
+            // Up or down
+            //mPosY += mVelY;
+            if (hit == false) {
+                mPosY -= DOT_VEL;
+            } else {
+                //mPosY -= DOT_VEL;
+            }
         }
     }
     
