@@ -29,6 +29,7 @@ void Dot::handleEvent(SDL_Event& event) {
 
 void Dot::move(int width, int height) {
     hit = false;
+    
     // Left or right
     mPosX += mVelX;
     
@@ -39,33 +40,24 @@ void Dot::move(int width, int height) {
     
     if (jump == false) {
         // Up or down
-        //mPosY += mVelY;
         if (hit == false) {
             mPosY += DOT_VEL;
-        } else {
-            //mPosY -= DOT_VEL;
         }
     } else {
         // Up or down
-        //mPosY += mVelY;
         if (hit == false) {
-            mPosY -= DOT_VEL;
-        } else {
             mPosY -= DOT_VEL;
         }
     }
     
     // Check if the dot moved to far up or down
-    if ((mPosY < 0) || (mPosY + DOT_HEIGHT > height)) {
-        //mPosY -= mVelY; // Move back
-        
+    if ((mPosY < 0) || (mPosY + DOT_HEIGHT > height)) {        
         if (jump == false) {
             //Move back
             if (hit == false) {
                 mPosY -= DOT_VEL;
                 hit = true;
             } else {
-                //mPosY += DOT_VEL;
                 hit = false;
             }
         }
