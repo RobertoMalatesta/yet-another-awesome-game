@@ -28,6 +28,7 @@ void Dot::handleEvent(SDL_Event& event) {
 }
 
 void Dot::move(int width, int height) {
+    hit = false;
     // Left or right
     mPosX += mVelX;
     
@@ -50,7 +51,7 @@ void Dot::move(int width, int height) {
         if (hit == false) {
             mPosY -= DOT_VEL;
         } else {
-            //mPosY -= DOT_VEL;
+            mPosY -= DOT_VEL;
         }
     }
     
@@ -67,17 +68,8 @@ void Dot::move(int width, int height) {
                 //mPosY += DOT_VEL;
                 hit = false;
             }
-        } else {
-            // Up or down
-            //mPosY += mVelY;
-            if (hit == false) {
-                mPosY -= DOT_VEL;
-            } else {
-                //mPosY -= DOT_VEL;
-            }
         }
     }
-    
 }
 
 void Dot::render(SDL_Renderer* renderer) {
