@@ -5,7 +5,7 @@ const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 int main(int argc, char* args[]) {
-    Game* g_game = new Game("My awesome game", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+    Game* g_game = new Game("Yet another platform game", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
     
     if (g_game->init()) {
         while (g_game->running()) {

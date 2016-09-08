@@ -17,7 +17,7 @@ public:
     
     static const int DOT_WIDTH  = 20;       // Dot's width
     static const int DOT_HEIGHT = 20;       // Dot's height
-    static const int DOT_VEL    = 10;       // Max velocity of the dot
+    static const int DOT_VEL    = 5;       // Max velocity of the dot
     
 private:
     int mPosX, mPosY;                       // The X and Y offsets of the dot
